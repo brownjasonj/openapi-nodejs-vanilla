@@ -1,0 +1,6 @@
+{
+    "watch": ["src", "config", "openapi"],
+    "ext": ".ts,.js,.yaml,.json",
+    "ignore": [],
+    "exec": "npx ts-node ./src/index.ts --config ./config/application-config.json | pino-pretty"
+  }

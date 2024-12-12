@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "frontend": {
+        "type": "object",
+        "properties": {
+          "hostname": {
+            "type": "string"
+          },
+          "enableHttps": {
+            "type": "boolean"
+          },
+          "enableHttp": {
+            "type": "boolean"
+          },
+          "https": {
+            "type": "object",
+            "properties": {
+              "port": {
+                "type": "integer"
+              },
+              "httpsKeyPath": {
+                "type": "string"
+              },
+              "httpsCertPath": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "port",
+              "httpsKeyPath",
+              "httpsCertPath"
+            ]
+          },
+          "http": {
+            "type": "object",
+            "properties": {
+              "port": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "port"
+            ]
+          },
+          "openapiPath" : {
+            "type": "string"
+          },
+          "streamTrottleTimeout": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "hostname",
+          "enableHttps",
+          "enableHttp",
+          "https",
+          "http",
+          "openapiPath",
+          "streamTrottleTimeout"
+        ]
+      }
+    },
+    "required": [
+      "frontend"
+    ]
+  }

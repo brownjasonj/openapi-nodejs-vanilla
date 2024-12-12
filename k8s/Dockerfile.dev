@@ -1,0 +1,28 @@
+FROM node:latest
+
+WORKDIR /usr/org-change
+
+# Get the latest version of the code from git
+COPY --from=project src src
+COPY --from=project package.json package.json
+COPY --from=project tsconfig.json tsconfig.json
+COPY --from=project config config
+COPY --from=project openapi-schemas openapi-schemas
+
+RUN ls
+RUN npm init -y
+# install the typescript compiler
+RUN npm install -g typescript
+
+# install the necessary packages
+RUN npm install
+
+# build the application for production
+RUN npm run build
+
+WORKDIR /usr/org-change/build
+
+# run the application
+WORKDIR /usr/org-change/build
+EXPOSE 8080
+CMD ["node","./src/index.js","--config config/application-config.json"]

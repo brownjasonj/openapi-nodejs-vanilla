@@ -1,0 +1,26 @@
+{
+    "frontend": {
+        "hostname": "localhost",
+        "enableHttps": false,
+        "enableHttp": true,
+        "https": {
+            "port": 443,
+            "httpsKeyPath": "/etc/letsencrypt/live/yourdomain.com/privkey.pem",
+            "httpsCertPath": "/etc/letsencrypt/live/yourdomain.com/fullchain.pem"
+        },
+        "http": {
+            "port": 8080
+        },
+        "openapiPath": "./openapi/openapi-schema.yaml"
+    },
+    "logging": {
+        "dataIngestionLogging": true,
+        "dataIngestionLoggingLevel": "info",
+        "dataIngestionLoggingPath": "./logs/dataIngestion/",
+        "dataIngestionDeadLetterPath": "./logs/dataIngestion",
+        "queryLogging": true,
+        "queryLoggingLevel": "info",
+        "queryLoggingPath": "./logs/query/"
+    }
+}
+

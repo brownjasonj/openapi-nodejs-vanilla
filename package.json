@@ -1,0 +1,50 @@
+{
+  "name": "openapi-nodets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --detectOpenHandles --coverage --forceExit",
+    "start:dev": "npx nodemon",
+    "build": "rimraf ./build && tsc && ts-add-js-extension add --dir ./build && mkdir -p ./build/config && cp ./config/*.* ./build/config && mkdir -p ./build/openapi && cp ./openapi/*.* ./build/openapi",
+    "start": "npm run build && node --max-old-space-size=8192 ./build/index.js"
+  },
+  "keywords": [],
+  "author": "Jason Brown (jajabro@google.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.2",
+    "@types/swagger-ui-express": "^4.1.7",
+    "@types/yamljs": "^0.2.34",
+    "@types/yargs": "^17.0.33",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "pino-pretty": "^13.0.0",
+    "ts-add-js-extension": "^1.6.5",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "class-transformer": "^0.5.1",
+    "cors": "^2.8.5",
+    "express": "^5.0.1",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "openapi-backend": "^5.11.1",
+    "pino": "^9.5.0",
+    "pino-http": "^10.3.0",
+    "reflect-metadata": "^0.2.2",
+    "stream": "^0.0.3",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0",
+    "yargs": "^17.7.2"
+  }
+}

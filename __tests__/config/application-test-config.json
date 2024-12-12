@@ -1,0 +1,16 @@
+{
+    "frontend": {
+        "hostname": "localhost",
+        "enableHttps": false,
+        "enableHttp": true,
+        "https": {
+            "port": 443,
+            "httpsKeyPath": "/etc/letsencrypt/live/yourdomain.com/privkey.pem",
+            "httpsCertPath": "/etc/letsencrypt/live/yourdomain.com/fullchain.pem"
+        },
+        "http": {
+            "port": 8080
+        }
+    }
+}
+

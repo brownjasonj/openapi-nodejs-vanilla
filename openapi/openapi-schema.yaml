@@ -1,0 +1,37 @@
+openapi: '3.1.0'
+info:
+  title: Data Product REST API
+  version: '1.0'
+servers:
+  - url: http://localhost:8080
+    description: locally hosted server for local development purposes
+  - url: https://localhost:8443
+    description: locally hosted server for local development purposes
+paths:
+  /greeting/{first_name}:
+    get:
+      description: get the greeting message
+      operationId: "greeting"
+      parameters:
+        - in: path
+          name: first_name
+          schema:
+            type: string
+          required: true
+          description: Persons First Name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/greeting"
+
+components:
+  schemas:
+    greeting:
+      type: object
+      properties:
+        greeting:
+          type: string
+        
